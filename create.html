@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- This site was created in Memefun WebBuilder. https://builder.memefun.cc -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/182427284?v=4">
+    <title>MemeFun DEX @Alephium - Create Token</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+        @font-face {
+          font-family: 'Pixelemulator xq08';
+          src: url('https://assets.website-files.com/645f0a04255d0d8665a9685b/645f0a594a08f1027c86831b_PixelEmulator-xq08.ttf') format('truetype');
+          font-weight: 400;
+          font-style: normal;
+          font-display: swap;
+        }
+        body {
+            font-family: Pixelify Sans, monospace, sans-serif, sans-serif;
+        }
+        *[disabled] {
+            filter: grayscale(1);
+            opacity: .5;
+        }
+        h1, h2, h3, h4, h5, h6, header, label, button, select, .font-pxm {
+            font-family: 'Pixelemulator xq08' !important;
+        }
+        input {
+            font-family: monospace !important;
+        }
+        .border-mm {
+            border: .3rem solid #0ef;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-blue-900 text-gray-300 min-h-screen" style="background: #072344 url(https://assets.website-files.com/645f0a04255d0d8665a9685b/645f119f0429258bf199e1a2_Layer%201.png) top center/cover no-repeat fixed">
+    <div class="container mx-auto px-4 py-8">
+        <header class="flex justify-between items-center mb-12">
+            <h1 class="text-3xl font-bold text-white blink">
+                <img src="https://avatars.githubusercontent.com/u/182427284?v=4" style="display: inline-block; border-radius: 100%; width: 30px">
+                <span>MemeFun</span><sup style="background:#0ef;padding:0 .5rem;color:#000">DEX</sup>>
+            </h1>
+            <nav class="space-x-6">
+                <a class="hover:text-white transition duration-300" href="/apps/index">DEX Home</a>
+                <a class="hover:text-white transition duration-300" href="/apps/create">Create Token</a>
+                <a class="hover:text-white transition duration-300" href="/apps/trade">Trade</a>
+                <a class="hover:text-white transition duration-300" href="/">About</a>
+            </nav>
+            <button id="btn-connect-wallet" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition duration-300 shadow-lg">
+                <!-- <i class="fas fa-wallet mr-2"></i> -->
+                Connect Wallet
+            </button>
+        </header>
+
+        <main>
+            <section class="mb-20">
+                <h2 class="text-4xl font-bold text-white mb-10 text-center">Create Tokens</h2>
+                <div class="bg-gray-800 bg-opacity-50 p-8 rounded-xl shadow-xl max-w-2xl mx-auto border-mm">
+                    <div class="mb-6">
+                        <label for="project-name" class="block text-white font-bold mb-2">Project Name</label>
+                        <input type="text" id="project-name" name="project-name" placeholder="MemeToken" class="w-full bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <p class="text-sm text-gray-400 mt-1">Enter the name of the meme coin or project you want to create.</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="token-symbol" class="block text-white font-bold mb-2">Token Symbol</label>
+                        <input type="text" id="token-symbol" name="token-symbol" placeholder="MEME" class="w-full bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <p class="text-sm text-gray-400 mt-1">Enter the token symbol, usually 3 to 6 capital letters.</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="total-supply" class="block text-white font-bold mb-2">Total Supply</label>
+                        <input type="number" id="total-supply" name="total-supply" placeholder="10000000" class="w-full bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <p class="text-sm text-gray-400 mt-1">Enter the total supply of tokens, i.e., the maximum number of tokens to be issued.</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="liquidity" class="block text-white font-bold mb-2">Add Liquidity</label>
+                        <div class="flex items-center">
+                            <input type="number" id="liquidity" name="liquidity" min="1" step="0.1" placeholder="1" class="w-full bg-gray-700 text-white rounded-l-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <span class="bg-gray-600 text-white px-4 py-2 rounded-r-md">ALPH</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-1">The creator must add liquidity to the project. Minimum is 1 ALPH.</p>
+                    </div>
+
+                    <div class="mb-6 hidden">
+                        <label for="slippage" class="block text-white font-bold mb-2">Slippage Tolerance</label>
+                        <select id="slippage" name="slippage" class="w-full bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="0.1">0.1%</option>
+                            <option value="0.5">0.5%</option>
+                            <option value="1">1%</option>
+                            <option value="3">3%</option>
+                            <option value="5">5%</option>
+                        </select>
+                        <p class="text-sm text-gray-400 mt-1">Set the slippage value for transactions, determining the acceptable price fluctuation range when buying and selling tokens in the AMM market.</p>
+                    </div>
+
+                    <button id="btn-create-submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 shadow-lg">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Create Meme Coin
+                    </button>
+
+                    <button id="btn-create-submit1" class="hidden bg-blue-600 text-white py-3 px-4">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Create Meme Coin - test
+                    </button>
+
+                    <button id="btn-create-pair" class="hidden bg-blue-600 text-white py-3 px-4">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Create Meme Pair - test
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12">
+            <p>(C) 2024 MemeFun - Built on Alephium</p>
+            <div class="mt-4 space-x-4 text-2xl">
+                <a href="https://x.com/memeverse_alph" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.gg/gG5JAkZGxN" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-discord"></i></a>
+                <a href="https://github.com/memeversealph" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-github"></i></a>
+                <a href="https://medium.com/@memeverseinfinity" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-medium"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="modal-dialog" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" style="display: none">
+        <div class="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-xl bg-blue-900 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl">
+                    <div class="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title"></h3>
+                                <div class="mt-2">
+                                    <p class="text-white" id="modal-content"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="button" onclick="document.getElementById('modal-dialog').style.display='none'" class="inline-flex w-full justify-center rounded-full bg-red-600 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">OK</button>
+                        <!-- <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/alephium-web3@0.9.3/web/alephium-web3.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/@alephium/web3@1.7.3/dist/alephium-web3.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@alephium/web3-wallet@1.7.3/dist/alephium-web3-wallet.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/@alephium/get-extension-wallet@1.7.3/dist/index.js"></script>> -->
+<script type="text/javascript">
+function SimpleBuffer(arrayBuffer, byteOffset, byteLength) {
+  this._buffer = arrayBuffer || new ArrayBuffer()
+  this._byteOffset = byteOffset || 0
+  this._byteLength = byteLength || arrayBuffer.byteLength
+  this._uint8View = new Uint8Array(this._buffer, this._byteOffset, this._byteLength)
+}
+
+SimpleBuffer.from = function(array, encoding) {
+  if (typeof array === 'string') {
+    const encoder = new TextEncoder()
+    const encodedString = encoder.encode(array)
+    return new SimpleBuffer(encodedString.buffer)
+  }
+}
+
+SimpleBuffer.prototype.toString = function(encoding) {
+  if (encoding === 'hex') {
+    let hex = ''
+    for (let i = 0; i < this._byteLength; i++) {
+      hex += this._uint8View[i].toString(16).padStart(2, '0')
+    }
+    return hex
+  }
+}
+if (!window.Buffer) { window.Buffer = SimpleBuffer }
+</script>
+<script type="text/javascript"> document.write(`<script src="/dist/apps.min.js?v=${new Date()}"><\/script>`) </script>
+</body>
+</html>
