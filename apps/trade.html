@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- This site was created in Memefun WebBuilder. https://builder.memefun.cc -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/182427284?v=4">
+    <title>MemeFun DEX @Alephium - Trading</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+        @font-face {
+          font-family: 'Pixelemulator xq08';
+          src: url('https://assets.website-files.com/645f0a04255d0d8665a9685b/645f0a594a08f1027c86831b_PixelEmulator-xq08.ttf') format('truetype');
+          font-weight: 400;
+          font-style: normal;
+          font-display: swap;
+        }
+        body {
+            font-family: Pixelify Sans, monospace, sans-serif, sans-serif;
+        }
+        *[disabled] {
+            filter: grayscale(1);
+            opacity: .5;
+        }
+        h1, h2, h3, h4, h5, h6, header, label, button, select, .font-pxm {
+            font-family: 'Pixelemulator xq08' !important;
+        }
+        input {
+            font-family: monospace !important;
+        }
+        .border-mm {
+            border: .3rem solid #0ef;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-blue-900 text-gray-300 min-h-screen" style="background: #072344 url(https://assets.website-files.com/645f0a04255d0d8665a9685b/645f119f0429258bf199e1a2_Layer%201.png) top center/cover no-repeat fixed">
+    <div class="container mx-auto px-4 py-8">
+        <header class="flex justify-between items-center mb-12">
+            <h1 class="text-3xl font-bold text-white blink">
+                <img src="https://avatars.githubusercontent.com/u/182427284?v=4" style="display: inline-block; border-radius: 100%; width: 30px">
+                <span>MemeFun</span><sup style="background:#0ef;padding:0 .5rem;color:#000">DEX</sup>
+            </h1>
+            <nav class="space-x-6">
+                <a class="hover:text-white transition duration-300" href="/apps/index">DEX Home</a>
+                <a class="hover:text-white transition duration-300" href="/apps/create">Create Token</a>
+                <a class="hover:text-white transition duration-300" href="/apps/trade">Trade</a>
+                <a class="hover:text-white transition duration-300" href="/">About</a>
+            </nav>
+            <button id="btn-connect-wallet" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition duration-300 shadow-lg">
+                <!-- <i class="fas fa-wallet mr-2"></i> -->
+                Connect Wallet
+            </button>
+        </header>
+
+        <main>
+            <section class="mb-20">
+                <h2 class="text-4xl font-bold text-white mb-10 text-center">Token Trading</h2>
+                <!-- <div class="grid grid-cols-1 lg:grid-cols-3 gap-8"> -->
+                <div class="bg-gray-800 bg-opacity-50 p-8 rounded-xl shadow-xl max-w-2xl mx-auto border-mm">
+                    <div class="lg:col-span-2 bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl hidden">
+                        <h3 class="text-2xl font-bold text-white mb-4">K Line</h3>
+                        <div id="tradingview_widget" style="height: 400px;"></div>
+                    </div>
+                    <!-- <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl"> -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">
+                            <select id="select-trade-symbol" class="bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <optgroup label="Verified Symbols by Memefun">
+                                    <option value="MMM7|7c27553aebd0925bbbc55578237f8790e6ec670325ee1ba9525d424897531a00|6665b04cb2140024865b2ee958535b21149edc6335cd26408eb32f7c79928700">MMM7/ALPH</option>
+                                </optgroup>
+                                <optgroup label="Customized Symbol">
+                                    <option value="ContractID">By Contract ID</option>
+                                    <!-- <option value="ContractAddress" disabled>Contract Address</option> -->
+                                </optgroup>
+                            </select>
+                            Trading
+                        </h3>
+                        <div class="mb-6" style="display: none">
+                            <label for="trade-contract-id" class="block text-white font-bold mb-2">Contract ID</label>
+                            <input type="text" id="trade-contract-id" name="trade-contract-id" placeholder="Your Contract ID" class="w-full bg-cyan-900 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-white font-bold mb-2">Price</label>
+                            <div id="trade-price" style="font:1rem/150% monospace" class="w-full bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                1 MEME = 0.00 ALPH<br>
+                                1 ALPH = 0.00 ALPH<br>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="trade-amount" class="block text-white font-bold mb-2">Amount</label>
+                            <input type="number" style="font:1rem/150% monospace" value="1" id="trade-amount" name="trade-amount" placeholder="0.00" class="w-full bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button id="btn-swap-buy" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 shadow-lg">
+                                <i class="fas fa-arrow-up mr-2"></i>
+                                Buy
+                            </button>
+                            <button id="btn-swap-sell" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 shadow-lg">
+                                <i class="fas fa-arrow-down mr-2"></i>
+                                Sell
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-20 hidden">
+                <h2 class="text-3xl font-bold text-white mb-8">Depth</h2>
+                <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl">
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-green-500 mb-4">Bids</h3>
+                            <ul class="space-y-2">
+                                <li class="flex justify-between"><span>0.25 ALPH</span><span>1000 MEME</span></li>
+                                <li class="flex justify-between"><span>0.24 ALPH</span><span>1500 MEME</span></li>
+                                <li class="flex justify-between"><span>0.23 ALPH</span><span>2000 MEME</span></li>
+                                <li class="flex justify-between"><span>0.22 ALPH</span><span>2500 MEME</span></li>
+                                <li class="flex justify-between"><span>0.21 ALPH</span><span>3000 MEME</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-red-500 mb-4">Asks</h3>
+                            <ul class="space-y-2">
+                                <li class="flex justify-between"><span>0.26 ALPH</span><span>800 MEME</span></li>
+                                <li class="flex justify-between"><span>0.27 ALPH</span><span>1200 MEME</span></li>
+                                <li class="flex justify-between"><span>0.28 ALPH</span><span>1600 MEME</span></li>
+                                <li class="flex justify-between"><span>0.29 ALPH</span><span>2000 MEME</span></li>
+                                <li class="flex justify-between"><span>0.30 ALPH</span><span>2400 MEME</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-20 hidden">
+                <h2 class="text-3xl font-bold text-white mb-8">History</h2>
+                <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="pb-4 pr-4">Time</th>
+                                <th class="pb-4 pr-4">Price</th>
+                                <th class="pb-4 pr-4">Amount</th>
+                                <th class="pb-4">Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2 pr-4">14:30:25</td>
+                                <td class="py-2 pr-4 text-green-500">0.25 ALPH</td>
+                                <td class="py-2 pr-4">500 MEME</td>
+                                <td class="py-2 text-green-500">Buy</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2 pr-4">14:29:18</td>
+                                <td class="py-2 pr-4 text-red-500">0.24 ALPH</td>
+                                <td class="py-2 pr-4">300 MEME</td>
+                                <td class="py-2 text-red-500">Sell</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2 pr-4">14:28:05</td>
+                                <td class="py-2 pr-4 text-green-500">0.25 ALPH</td>
+                                <td class="py-2 pr-4">800 MEME</td>
+                                <td class="py-2 text-green-500">Buy</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2 pr-4">14:27:42</td>
+                                <td class="py-2 pr-4 text-red-500">0.23 ALPH</td>
+                                <td class="py-2 pr-4">1000 MEME</td>
+                                <td class="py-2 text-red-500">Sell</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 pr-4">14:26:30</td>
+                                <td class="py-2 pr-4 text-green-500">0.24 ALPH</td>
+                                <td class="py-2 pr-4">650 MEME</td>
+                                <td class="py-2 text-green-500">Sell</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12">
+            <p>(C) 2024 MemeFun - Built on Alephium</p>
+            <div class="mt-4 space-x-4 text-2xl">
+                <a href="https://x.com/memeverse_alph" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.gg/gG5JAkZGxN" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-discord"></i></a>
+                <a href="https://github.com/memeversealph" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-github"></i></a>
+                <a href="https://medium.com/@memeverseinfinity" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-medium"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="modal-dialog" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" style="display: none">
+        <div class="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-xl bg-blue-900 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl">
+                    <div class="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title"></h3>
+                                <div class="mt-2">
+                                    <p class="text-white" id="modal-content"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="button" onclick="document.getElementById('modal-dialog').style.display='none'" class="inline-flex w-full justify-center rounded-full bg-red-600 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">OK</button>
+                        <!-- <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script> -->
+<!-- <script type="text/javascript">
+    new TradingView.widget({
+        "width": "100%",
+        "height": 400,
+        "symbol": "BINANCE:BTCUSDT",
+        "interval": "D",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": false,
+        "allow_symbol_change": true,
+        "container_id": "tradingview_widget"
+    });
+</script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/alephium-web3@0.9.3/web/alephium-web3.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/@alephium/web3@1.7.3/dist/alephium-web3.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@alephium/web3-wallet@1.7.3/dist/alephium-web3-wallet.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/@alephium/get-extension-wallet@1.7.3/dist/index.js"></script>> -->
+<script type="text/javascript">
+function SimpleBuffer(arrayBuffer, byteOffset, byteLength) {
+  this._buffer = arrayBuffer || new ArrayBuffer()
+  this._byteOffset = byteOffset || 0
+  this._byteLength = byteLength || arrayBuffer.byteLength
+  this._uint8View = new Uint8Array(this._buffer, this._byteOffset, this._byteLength)
+}
+
+SimpleBuffer.from = function(array, encoding) {
+  if (typeof array === 'string') {
+    const encoder = new TextEncoder()
+    const encodedString = encoder.encode(array)
+    return new SimpleBuffer(encodedString.buffer)
+  }
+}
+
+SimpleBuffer.prototype.toString = function(encoding) {
+  if (encoding === 'hex') {
+    let hex = ''
+    for (let i = 0; i < this._byteLength; i++) {
+      hex += this._uint8View[i].toString(16).padStart(2, '0')
+    }
+    return hex
+  }
+}
+if (!window.Buffer) { window.Buffer = SimpleBuffer }
+</script>
+<script type="text/javascript"> document.write(`<script src="/dist/apps.min.js?v=${new Date()}"><\/script>`) </script>
+</body>
+</html>
