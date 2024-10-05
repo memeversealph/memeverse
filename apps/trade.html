@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <!-- This site was created in Memefun WebBuilder. https://builder.memefun.cc -->
@@ -12,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+        @import url('https://fonts.cdnfonts.com/css/press-start');
         @font-face {
           font-family: 'Pixelemulator xq08';
           src: url('https://assets.website-files.com/645f0a04255d0d8665a9685b/645f0a594a08f1027c86831b_PixelEmulator-xq08.ttf') format('truetype');
@@ -26,14 +26,31 @@
             filter: grayscale(1);
             opacity: .5;
         }
-        h1, h2, h3, h4, h5, h6, header, label, button, select, .font-pxm {
+        h1, h2, h3, h4, h5, h6, header, label, button, select, svg text, table th, .font-pxm {
             font-family: 'Pixelemulator xq08' !important;
         }
-        input {
-            font-family: monospace !important;
+        input, .font-prs {
+            font-family: 'Press Start K', monospace !important;
         }
         .border-mm {
             border: .3rem solid #0ef;
+        }
+        button, svg.icon-random-avatar {
+            clip-path: polygon(
+                0 1rem, 1rem 0,
+                100% 0, 100% calc(100% - 1rem),
+                calc(100% - 1rem) 100%, 0 100%
+            );
+        }
+        svg.icon-random-avatar { font-size: 1.2rem }
+        table tr svg.icon-random-avatar {
+            width: 2rem !important;
+            height: 2rem !important;
+            clip-path: polygon(
+                0 .5rem, .5rem 0,
+                100% 0, 100% calc(100% - .5rem),
+                calc(100% - .5rem) 100%, 0 100%
+            );
         }
     </style>
 </head>
@@ -50,7 +67,7 @@
                 <a class="hover:text-white transition duration-300" href="/apps/trade">Trade</a>
                 <a class="hover:text-white transition duration-300" href="/">About</a>
             </nav>
-            <button id="btn-connect-wallet" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition duration-300 shadow-lg">
+            <button id="btn-connect-wallet" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 transition duration-300 shadow-lg">
                 <!-- <i class="fas fa-wallet mr-2"></i> -->
                 Connect Wallet
             </button>
@@ -60,7 +77,7 @@
             <section class="mb-20">
                 <h2 class="text-4xl font-bold text-white mb-10 text-center">Token Trading</h2>
                 <!-- <div class="grid grid-cols-1 lg:grid-cols-3 gap-8"> -->
-                <div class="bg-gray-800 bg-opacity-50 p-8 rounded-xl shadow-xl max-w-2xl mx-auto border-mm">
+                <div class="bg-gray-800 bg-opacity-50 p-8 rounded-xl shadow-xl max-w-3xl mx-auto border-mm">
                     <div class="lg:col-span-2 bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl hidden">
                         <h3 class="text-2xl font-bold text-white mb-4">K Line</h3>
                         <div id="tradingview_widget" style="height: 400px;"></div>
@@ -68,37 +85,37 @@
                     <!-- <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl"> -->
                     <div>
                         <h3 class="text-2xl font-bold text-white mb-4">
-                            <select id="select-trade-symbol" class="bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <select id="select-trade-symbol" class="w-1/2 bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 <optgroup label="Verified Symbols by Memefun">
                                     <option value="MMM7|7c27553aebd0925bbbc55578237f8790e6ec670325ee1ba9525d424897531a00|6665b04cb2140024865b2ee958535b21149edc6335cd26408eb32f7c79928700">MMM7/ALPH</option>
                                 </optgroup>
-                                <!--optgroup label="Customized Symbol">
-                                    <option value="ContractID">By Contract ID</option>
-                                </optgroup-->
+                                <optgroup label="Customized Symbol">
+                                    <option value="ContractID">By Contract Address / ID</option>
+                                </optgroup>
                             </select>
-                            Trading
+                            trading pairs
                         </h3>
                         <div class="mb-6" style="display: none">
-                            <label for="trade-contract-id" class="block text-white font-bold mb-2">Contract ID</label>
-                            <input type="text" id="trade-contract-id" name="trade-contract-id" placeholder="Your Contract ID" class="w-full bg-cyan-900 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <label for="trade-contract-id" class="block text-white font-bold mb-2">Symbol Pair Contract Address / ID</label>
+                            <input style="font-size: .8rem" type="text" id="trade-contract-id" name="trade-contract-id" placeholder="Your Symbol Pair Contract Address / ID" class="w-full bg-cyan-900 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <!-- <p class="text-sm text-gray-400 mt-1">Pair is added liquidity.</p> -->
                         </div>
                         <div class="mb-6">
-                            <label class="block text-white font-bold mb-2">Price</label>
-                            <div id="trade-price" style="font:1rem/150% monospace" class="w-full bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                1 MEME = 0.00 ALPH<br>
-                                1 ALPH = 0.00 ALPH<br>
+                            <label class="block text-white font-bold mb-2">Details</label>
+                            <div id="trade-price" style="min-height: 8.5rem;" class="w-full bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                Loading...
                             </div>
                         </div>
                         <div class="mb-6">
                             <label for="trade-amount" class="block text-white font-bold mb-2">Amount</label>
-                            <input type="number" style="font:1rem/150% monospace" value="1" id="trade-amount" name="trade-amount" placeholder="0.00" class="w-full bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <input type="number" value="1" id="trade-amount" name="trade-amount" placeholder="0.00" class="w-full bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         <div class="grid grid-cols-2 gap-4">
-                            <button id="btn-swap-buy" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 shadow-lg">
+                            <button id="btn-swap-buy" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 transition duration-300 shadow-lg">
                                 <i class="fas fa-arrow-up mr-2"></i>
                                 Buy
                             </button>
-                            <button id="btn-swap-sell" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 shadow-lg">
+                            <button id="btn-swap-sell" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 transition duration-300 shadow-lg">
                                 <i class="fas fa-arrow-down mr-2"></i>
                                 Sell
                             </button>
@@ -210,7 +227,7 @@
                         </div>
                     </div>
                     <div class="bg-gray-800 bg-opacity-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                        <button type="button" onclick="document.getElementById('modal-dialog').style.display='none'" class="inline-flex w-full justify-center rounded-full bg-red-600 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">OK</button>
+                        <button type="button" onclick="document.getElementById('modal-dialog').style.display='none'" class="inline-flex w-full justify-center bg-red-600 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">OK</button>
                         <!-- <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button> -->
                     </div>
                 </div>

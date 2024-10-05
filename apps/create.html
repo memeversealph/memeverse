@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <!-- This site was created in Memefun WebBuilder. https://builder.memefun.cc -->
@@ -12,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+        @import url('https://fonts.cdnfonts.com/css/press-start');
         @font-face {
           font-family: 'Pixelemulator xq08';
           src: url('https://assets.website-files.com/645f0a04255d0d8665a9685b/645f0a594a08f1027c86831b_PixelEmulator-xq08.ttf') format('truetype');
@@ -26,14 +26,31 @@
             filter: grayscale(1);
             opacity: .5;
         }
-        h1, h2, h3, h4, h5, h6, header, label, button, select, .font-pxm {
+        h1, h2, h3, h4, h5, h6, header, label, button, select, svg text, table th, .font-pxm {
             font-family: 'Pixelemulator xq08' !important;
         }
-        input {
-            font-family: monospace !important;
+        input, .font-prs {
+            font-family: 'Press Start K', monospace !important;
         }
         .border-mm {
             border: .3rem solid #0ef;
+        }
+        button, svg.icon-random-avatar {
+            clip-path: polygon(
+                0 1rem, 1rem 0,
+                100% 0, 100% calc(100% - 1rem),
+                calc(100% - 1rem) 100%, 0 100%
+            );
+        }
+        svg.icon-random-avatar { font-size: 1.2rem }
+        table tr svg.icon-random-avatar {
+            width: 2rem !important;
+            height: 2rem !important;
+            clip-path: polygon(
+                0 .5rem, .5rem 0,
+                100% 0, 100% calc(100% - .5rem),
+                calc(100% - .5rem) 100%, 0 100%
+            );
         }
     </style>
 </head>
@@ -50,7 +67,7 @@
                 <a class="hover:text-white transition duration-300" href="/apps/trade">Trade</a>
                 <a class="hover:text-white transition duration-300" href="/">About</a>
             </nav>
-            <button id="btn-connect-wallet" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition duration-300 shadow-lg">
+            <button id="btn-connect-wallet" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 transition duration-300 shadow-lg">
                 <!-- <i class="fas fa-wallet mr-2"></i> -->
                 Connect Wallet
             </button>
@@ -61,9 +78,9 @@
                 <h2 class="text-4xl font-bold text-white mb-10 text-center">Create Tokens</h2>
                 <div class="bg-gray-800 bg-opacity-50 p-8 rounded-xl shadow-xl max-w-2xl mx-auto border-mm">
                     <div class="mb-6">
-                        <label for="project-name" class="block text-white font-bold mb-2">Project Name</label>
+                        <label for="project-name" class="block text-white font-bold mb-2">Token Name</label>
                         <input type="text" id="project-name" name="project-name" placeholder="MemeToken" class="w-full bg-gray-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <p class="text-sm text-gray-400 mt-1">Enter the name of the meme coin or project you want to create.</p>
+                        <p class="text-sm text-gray-400 mt-1">Enter the name of the meme token you want to create.</p>
                     </div>
 
                     <div class="mb-6">
@@ -84,7 +101,7 @@
                             <input type="number" id="liquidity" name="liquidity" min="1" step="0.1" placeholder="1" class="w-full bg-gray-700 text-white rounded-l-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <span class="bg-gray-600 text-white px-4 py-2 rounded-r-md">ALPH</span>
                         </div>
-                        <p class="text-sm text-gray-400 mt-1">The creator must add liquidity to the project. Minimum is 1 ALPH.</p>
+                        <p class="text-sm text-gray-400 mt-1">The creator must add liquidity to the token as trading pairs. Minimum is 1 ALPH.</p>
                     </div>
 
                     <div class="mb-6 hidden">
@@ -99,7 +116,7 @@
                         <p class="text-sm text-gray-400 mt-1">Set the slippage value for transactions, determining the acceptable price fluctuation range when buying and selling tokens in the AMM market.</p>
                     </div>
 
-                    <button id="btn-create-submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 shadow-lg">
+                    <button id="btn-create-submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 transition duration-300 shadow-lg">
                         <i class="fas fa-rocket mr-2"></i>
                         Create Meme Coin
                     </button>
@@ -143,14 +160,13 @@
                         </div>
                     </div>
                     <div class="bg-gray-800 bg-opacity-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                        <button type="button" onclick="document.getElementById('modal-dialog').style.display='none'" class="inline-flex w-full justify-center rounded-full bg-red-600 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">OK</button>
+                        <button type="button" onclick="document.getElementById('modal-dialog').style.display='none'" class="inline-flex w-full justify-center bg-red-600 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">OK</button>
                         <!-- <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 <!-- <script src="https://cdn.jsdelivr.net/npm/alephium-web3@0.9.3/web/alephium-web3.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/@alephium/web3@1.7.3/dist/alephium-web3.min.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@alephium/web3-wallet@1.7.3/dist/alephium-web3-wallet.min.js"></script> -->

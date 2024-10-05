@@ -1,3 +1,287 @@
-<script>
-location.href = '/'
+<!DOCTYPE html>
+<html lang="en">
+<!-- This site was created in Memefun WebBuilder. https://builder.memefun.cc -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/182427284?v=4">
+    <title>MemeFun DEX @Alephium - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+        @import url('https://fonts.cdnfonts.com/css/press-start');
+        @font-face {
+          font-family: 'Pixelemulator xq08';
+          src: url('https://assets.website-files.com/645f0a04255d0d8665a9685b/645f0a594a08f1027c86831b_PixelEmulator-xq08.ttf') format('truetype');
+          font-weight: 400;
+          font-style: normal;
+          font-display: swap;
+        }
+        body {
+            font-family: Pixelify Sans, monospace, sans-serif, sans-serif;
+        }
+        *[disabled] {
+            filter: grayscale(1);
+            opacity: .5;
+        }
+        h1, h2, h3, h4, h5, h6, header, label, button, select, svg text, table th, .font-pxm {
+            font-family: 'Pixelemulator xq08' !important;
+        }
+        input, .font-prs {
+            font-family: 'Press Start K', monospace !important;
+        }
+        .border-mm {
+            border: .3rem solid #0ef;
+        }
+        button, svg.icon-random-avatar {
+            clip-path: polygon(
+                0 1rem, 1rem 0,
+                100% 0, 100% calc(100% - 1rem),
+                calc(100% - 1rem) 100%, 0 100%
+            );
+        }
+        svg.icon-random-avatar { font-size: 1.2rem }
+        table tr svg.icon-random-avatar {
+            width: 2rem !important;
+            height: 2rem !important;
+            clip-path: polygon(
+                0 .5rem, .5rem 0,
+                100% 0, 100% calc(100% - .5rem),
+                calc(100% - .5rem) 100%, 0 100%
+            );
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-blue-900 text-gray-300 min-h-screen" style="background: #072344 url(https://assets.website-files.com/645f0a04255d0d8665a9685b/645f119f0429258bf199e1a2_Layer%201.png) top center/cover no-repeat fixed">
+    <div class="container mx-auto px-4 py-8">
+        <header class="flex justify-between items-center mb-12">
+            <h1 class="text-3xl font-bold text-white logo">
+                <img src="https://avatars.githubusercontent.com/u/182427284?v=4" style="display: inline-block; border-radius: 100%; width: 30px">
+                <span>MemeFun</span><span style="background:#0ef;padding:0 .5rem;color:#000;position:absolute;top:3.4rem">DEX</span><sup style="background:#ef0;padding:0 .5rem;color:#000">MAINNET</sup>
+            </h1>
+            <nav class="space-x-6">
+                <a class="hover:text-white transition duration-300" href="/apps/index">DEX Home</a>
+                <a class="hover:text-white transition duration-300" href="/apps/create">Create Token</a>
+                <a class="hover:text-white transition duration-300" href="/apps/trade">Trade</a>
+                <a class="hover:text-white transition duration-300" href="/">About</a>
+            </nav>
+            <button id="btn-connect-wallet" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 transition duration-300 shadow-lg">
+                <!-- <i class="fas fa-wallet mr-2"></i> -->
+                Connect Wallet
+            </button>
+        </header>
+        <main>
+            <section class="mb-20" id="home">
+                <h2 class="text-4xl font-bold text-white mb-10 text-center">
+                    Welcome to Memefun
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl">
+                        <h3 class="text-2xl font-bold text-white mb-6">
+                            <i class="fas fa-fire mr-2 text-orange-500">
+                            </i>
+                            Trending Meme Token
+                        </h3>
+                        <div id="token-trending" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg mb-4 hover:bg-opacity-70 transition duration-300">
+                            <div class="flex items-center mb-4">
+                                <div class="pr-4">
+                                    <svg class="icon-random-avatar" viewBox="0 0 80 80" fill="none" role="img" xmlns="http://www.w3.org/2000/svg"  width="80" height="80">  <mask id="mask__marble" maskUnits="userSpaceOnUse" x=0 y=0 width="80" height="80">    <rect width="80" height="80" rx="2" fill="#FFFFFF" />  </mask>  <g mask="url(#mask__marble)">    <rect width="80" height="80" fill=#f38630 />    <path filter="url(#prefix__filter0_f)" d="M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z"      fill="#ba00fa"      transform="        translate(-6 -6)        rotate(-286 40 40)         scale(1.3)    "/>    <path filter="url(#prefix__filter0_f)" style="mix-blend-mode: overlay" d="M22.216 24L0 46.75l14.108 38.129L78 86l-3.081-59.276-22.378 4.005 12.972 20.186-23.35 27.395L22.215 24z"      fill="#3ef2ff"      transform="        translate(-1 -1)        rotate(-249 40 40)         scale(1.3)    "/>  </g>  <text x="50%" y="55%" width="80" text-anchor="middle" fill="black">ALPH</text>  <defs>    <filter id="prefix__filter0_f" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>        <feGaussianBlur stdDeviation="7" result="effect1_foregroundBlur"></feGaussianBlur>    </filter>  </defs></svg> 
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-white">
+                                        TOKEN
+                                    </h4>
+                                    <p class="text-sm">
+                                        -----
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="text-lg">
+                                Market Cap: <span class="text-green-400 font-bold">0.00 ALPH</span>
+                            </p>
+                            <p>
+                                Create Time: <span class="font-bold">--</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-white mb-6">
+                            Create a New Meme Token
+                        </h3>
+                        <style type="text/css">
+                            .btn-create-main {
+                                transition: .2s all;
+                                position: relative;
+                                width: 22rem;
+                            }
+                            .btn-create-main b {
+                                position: absolute;
+                                transform: translate(0%, -100%);
+                                font-size: 1.5rem;
+                                justify-content: center;
+                                align-items: center;
+                                display: flex;
+                                width: 100%;
+                                height: 100%;
+                            }
+                           .btn-create-main:hover {
+                                transform: translateY(-.2rem);
+                                filter: drop-shadow(0 10px 12px rgba(0, 255, 255, .8));
+                           }
+                        </style>
+                        <a href="/apps/create" style="" class="btn-create-main font-pxm text-center text-black text-2xl">
+                            <svg width="100%" style="" viewBox="0 0 166 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 10.7686L11.9677 5H161V39.2314L154.032 45L30.4701 45L26.0337 39.8444H5V10.7686ZM158.704 14.0742V6.92286H150.04L158.704 14.0742ZM5 42.5H22.2818L24.5 44.9352H5V42.5Z"
+                                      fill="#00FFFF"></path>
+                                <path d="M1 26.1034V9.86004L11.08 1H29" stroke="#00FFFF" stroke-linecap="round"></path>
+                                <path d="M165 25L165 40.5294L154.92 49L137 49" stroke="#00FFFF" stroke-linecap="round"></path>
+                            </svg>
+
+                            <b>
+                                <i class="fas fa-plus-circle mr-2"></i>
+                                Start Creating
+                            </b>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-20" id="explore">
+                <h2 class="text-4xl font-bold text-white mb-10 text-center">
+                    Explore Meme Tokens
+                </h2>
+                <div id="token-list" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <p></p><p class="text-center text-xl">Loading</p><p></p>
+                </div>
+            </section>
+            <section class="mb-20" id="leaderboard">
+                <h2 class="text-4xl font-bold text-white mb-10 text-center">
+                    Meme Coin Leaderboard
+                </h2>
+                <div id="token-leaderboard" class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="text-left border-b border-gray-700">
+                                <th class="pb-4 text-lg">
+                                    Rank
+                                </th>
+                                <th class="pb-4 text-lg">
+                                    Name
+                                </th>
+                                <th class="pb-4 text-lg">
+                                    Market Cap
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td></td><td>
+                                <p class="text-center">Loading</p>
+                            </td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section class="mb-20" id="about">
+                <h2 class="text-4xl font-bold text-white mb-10 text-center">
+                    About Memefun
+                </h2>
+                <div class="bg-gray-800 bg-opacity-50 p-8 rounded-xl shadow-xl">
+                    <p class="mb-6 text-lg">
+                        Memefun is the first DEX & launch platform on the Alephium blockchain.
+                        We are committed to providing a fun and secure environment for
+                        creators and investors to create and trade Meme tokens.
+                    </p>
+                    <h3 class="font-bold text-xl mb-4 text-white">
+                        Key Features:
+                    </h3>
+                    <ul class="list-none space-y-3">
+                        <li>
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            Easily create and launch your own Meme tokens
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            Safe and reliable trading environment
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            Real-time market data and leaderboards
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            Active community support
+                        </li>
+                    </ul>
+                    <p class="mt-6 text-lg font-bold text-white">
+                        Join us and start your Meme token journey!
+                    </p>
+                </div>
+            </section>
+        </main>
+        <footer class="text-center mt-12">
+            <p>(C) 2024 MemeFun - Built on Alephium</p>
+            <div class="mt-4 space-x-4 text-2xl">
+                <a href="https://x.com/memeverse_alph" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.gg/gG5JAkZGxN" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-discord"></i></a>
+                <a href="https://github.com/memeversealph" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-github"></i></a>
+                <a href="https://medium.com/@memeverseinfinity" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-medium"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="modal-dialog" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" style="display: none">
+        <div class="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-xl bg-blue-900 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl">
+                    <div class="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title"></h3>
+                                <div id="modal-content" class="mt-2 text-white">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="button" onclick="document.getElementById('modal-dialog').style.display='none'" class="inline-flex w-full justify-center bg-red-600 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">OK</button>
+                        <!-- <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/@alephium/web3@1.7.3/dist/alephium-web3.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@alephium/web3-wallet@1.7.3/dist/alephium-web3-wallet.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/@alephium/get-extension-wallet@1.7.3/dist/index.js"></script>> -->
+<script type="text/javascript">
+function SimpleBuffer(arrayBuffer, byteOffset, byteLength) {
+  this._buffer = arrayBuffer || new ArrayBuffer()
+  this._byteOffset = byteOffset || 0
+  this._byteLength = byteLength || arrayBuffer.byteLength
+  this._uint8View = new Uint8Array(this._buffer, this._byteOffset, this._byteLength)
+}
+
+SimpleBuffer.from = function(array, encoding) {
+  if (typeof array === 'string') {
+    const encoder = new TextEncoder()
+    const encodedString = encoder.encode(array)
+    return new SimpleBuffer(encodedString.buffer)
+  }
+}
+
+SimpleBuffer.prototype.toString = function(encoding) {
+  if (encoding === 'hex') {
+    let hex = ''
+    for (let i = 0; i < this._byteLength; i++) {
+      hex += this._uint8View[i].toString(16).padStart(2, '0')
+    }
+    return hex
+  }
+}
+if (!window.Buffer) { window.Buffer = SimpleBuffer }
 </script>
+<script type="text/javascript">document.write(`<script src="/dist/apps.${location.href.match('debug')?'':'min.'}js?v=${new Date().getTime()}"><\/script>`)</script>
+</body>
+</html>
