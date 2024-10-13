@@ -56,21 +56,20 @@
 </head>
 <body class="bg-gradient-to-br from-gray-900 to-blue-900 text-gray-300 min-h-screen" style="background: #072344 url(https://assets.website-files.com/645f0a04255d0d8665a9685b/645f119f0429258bf199e1a2_Layer%201.png) top center/cover no-repeat fixed">
     <div class="container mx-auto px-4 py-8">
-        <header class="flex justify-between items-center mb-12">
-            <h1 class="text-3xl font-bold text-white logo">
+        <header class="block lg:flex justify-between items-center mb-12">
+            <h1 class="text-3xl text-center lg:text-left font-bold text-white logo">
                 <img src="https://avatars.githubusercontent.com/u/182427284?v=4" style="display: inline-block; border-radius: 100%; width: 30px">
                 <span>MemeFun</span><span style="background:#0ef;padding:0 .5rem;color:#000;position:absolute;top:3.4rem">DEX</span><sup style="background:#ef0;padding:0 .5rem;color:#000">MAINNET</sup>
             </h1>
-            <nav class="space-x-6">
+            <nav class="mt-10 lg:mt-0 text-center space-x-6">
                 <a class="hover:text-white transition duration-300" href="/apps/index">DEX Home</a>
                 <a class="hover:text-white transition duration-300" href="/apps/create">Create Token</a>
                 <a class="hover:text-white transition duration-300" href="/apps/trade">Trade</a>
                 <a class="hover:text-white transition duration-300" href="/">About</a>
+                <button id="btn-connect-wallet" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 transition duration-300 shadow-lg">
+                    <i class="fas fa-wallet mr-2"></i>Connect Wallet
+                </button>
             </nav>
-            <button id="btn-connect-wallet" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 transition duration-300 shadow-lg">
-                <!-- <i class="fas fa-wallet mr-2"></i> -->
-                Connect Wallet
-            </button>
         </header>
         <main>
             <section class="mb-20" id="home">
@@ -78,13 +77,12 @@
                     Welcome to Memefun
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl">
+                    <div class="bg-gray-800 bg-opacity-50 p-2 md:p-6 rounded-xl shadow-xl">
                         <h3 class="text-2xl font-bold text-white mb-6">
-                            <i class="fas fa-fire mr-2 text-orange-500">
-                            </i>
+                            <i class="fas fa-fire mr-2 text-orange-500"></i>
                             Trending Meme Token
                         </h3>
-                        <div id="token-trending" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg mb-4 hover:bg-opacity-70 transition duration-300">
+                        <div id="token-trending" class="md:bg-gray-700 md:bg-opacity-50 md:p-4 rounded-lg mb-4 hover:bg-opacity-70 transition duration-300">
                             <div class="flex items-center mb-4">
                                 <div class="pr-4">
                                     <svg class="icon-random-avatar" viewBox="0 0 80 80" fill="none" role="img" xmlns="http://www.w3.org/2000/svg"  width="80" height="80">  <mask id="mask__marble" maskUnits="userSpaceOnUse" x=0 y=0 width="80" height="80">    <rect width="80" height="80" rx="2" fill="#FFFFFF" />  </mask>  <g mask="url(#mask__marble)">    <rect width="80" height="80" fill=#f38630 />    <path filter="url(#prefix__filter0_f)" d="M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z"      fill="#ba00fa"      transform="        translate(-6 -6)        rotate(-286 40 40)         scale(1.3)    "/>    <path filter="url(#prefix__filter0_f)" style="mix-blend-mode: overlay" d="M22.216 24L0 46.75l14.108 38.129L78 86l-3.081-59.276-22.378 4.005 12.972 20.186-23.35 27.395L22.215 24z"      fill="#3ef2ff"      transform="        translate(-1 -1)        rotate(-249 40 40)         scale(1.3)    "/>  </g>  <text x="50%" y="55%" width="80" text-anchor="middle" fill="black">ALPH</text>  <defs>    <filter id="prefix__filter0_f" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>        <feGaussianBlur stdDeviation="7" result="effect1_foregroundBlur"></feGaussianBlur>    </filter>  </defs></svg> 
@@ -115,6 +113,7 @@
                                 transition: .2s all;
                                 position: relative;
                                 width: 22rem;
+                                color: #0ef;
                             }
                             .btn-create-main b {
                                 position: absolute;
@@ -127,6 +126,7 @@
                                 height: 100%;
                             }
                            .btn-create-main:hover {
+                                color: #4ff;
                                 transform: translateY(-.2rem);
                                 filter: drop-shadow(0 10px 12px rgba(0, 255, 255, .8));
                            }
@@ -134,12 +134,11 @@
                         <a href="/apps/create" style="" class="btn-create-main font-pxm text-center text-black text-2xl">
                             <svg width="100%" style="" viewBox="0 0 166 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M5 10.7686L11.9677 5H161V39.2314L154.032 45L30.4701 45L26.0337 39.8444H5V10.7686ZM158.704 14.0742V6.92286H150.04L158.704 14.0742ZM5 42.5H22.2818L24.5 44.9352H5V42.5Z"
-                                      fill="#00FFFF"></path>
-                                <path d="M1 26.1034V9.86004L11.08 1H29" stroke="#00FFFF" stroke-linecap="round"></path>
-                                <path d="M165 25L165 40.5294L154.92 49L137 49" stroke="#00FFFF" stroke-linecap="round"></path>
+                                      fill="currentColor"></path>
+                                <path d="M1 26.1034V9.86004L11.08 1H29" stroke="currentColor" stroke-linecap="round"></path>
+                                <path d="M165 25L165 40.5294L154.92 49L137 49" stroke="currentColor" stroke-linecap="round"></path>
                             </svg>
-
-                            <b>
+                            <b class="text-black">
                                 <i class="fas fa-plus-circle mr-2"></i>
                                 Start Creating
                             </b>
@@ -151,8 +150,103 @@
                 <h2 class="text-4xl font-bold text-white mb-10 text-center">
                     Explore Meme Tokens
                 </h2>
-                <div id="token-list" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <p></p><p class="text-center text-xl">Loading</p><p></p>
+                <div id="token-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+                    <div class="animate-pulse bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl hover:bg-opacity-70 transition duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="icon relative pr-4">
+                                <div class="w-20 h-20 bg-gray-600"></div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 h-6 w-24 bg-gray-600"></h3>
+                                <div class="mt-2 h-4 w-36 bg-gray-600"></div>
+                                <div class="mt-2 h-4 w-48 bg-gray-600"></div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-center mt-2">
+                            Token Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                            Trading Pairs Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                        </p>
+                    </div>
+                    <div class="animate-pulse bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl hover:bg-opacity-70 transition duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="icon relative pr-4">
+                                <div class="w-20 h-20 bg-gray-600"></div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 h-6 w-24 bg-gray-600"></h3>
+                                <div class="mt-2 h-4 w-36 bg-gray-600"></div>
+                                <div class="mt-2 h-4 w-48 bg-gray-600"></div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-center mt-2">
+                            Token Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                            Trading Pairs Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                        </p>
+                    </div>
+                    <div class="animate-pulse bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl hover:bg-opacity-70 transition duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="icon relative pr-4">
+                                <div class="w-20 h-20 bg-gray-600"></div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 h-6 w-24 bg-gray-600"></h3>
+                                <div class="mt-2 h-4 w-36 bg-gray-600"></div>
+                                <div class="mt-2 h-4 w-48 bg-gray-600"></div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-center mt-2">
+                            Token Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                            Trading Pairs Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                        </p>
+                    </div>
+                    <div class="animate-pulse bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl hover:bg-opacity-70 transition duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="icon relative pr-4">
+                                <div class="w-20 h-20 bg-gray-600"></div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 h-6 w-24 bg-gray-600"></h3>
+                                <div class="mt-2 h-4 w-36 bg-gray-600"></div>
+                                <div class="mt-2 h-4 w-48 bg-gray-600"></div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-center mt-2">
+                            Token Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                            Trading Pairs Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                        </p>
+                    </div>
+                    <div class="animate-pulse bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl hover:bg-opacity-70 transition duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="icon relative pr-4">
+                                <div class="w-20 h-20 bg-gray-600"></div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 h-6 w-24 bg-gray-600"></h3>
+                                <div class="mt-2 h-4 w-36 bg-gray-600"></div>
+                                <div class="mt-2 h-4 w-48 bg-gray-600"></div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-center mt-2">
+                            Token Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                            Trading Pairs Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                        </p>
+                    </div>
+                    <div class="animate-pulse bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-xl hover:bg-opacity-70 transition duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="icon relative pr-4">
+                                <div class="w-20 h-20 bg-gray-600"></div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 h-6 w-24 bg-gray-600"></h3>
+                                <div class="mt-2 h-4 w-36 bg-gray-600"></div>
+                                <div class="mt-2 h-4 w-48 bg-gray-600"></div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-center mt-2">
+                            Token Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                            Trading Pairs Address: <span class="h-4 w-full inline-block bg-gray-600"></span> <br>
+                        </p>
+                    </div>
                 </div>
             </section>
             <section class="mb-20" id="leaderboard">
@@ -164,20 +258,44 @@
                         <thead>
                             <tr class="text-left border-b border-gray-700">
                                 <th class="pb-4 text-lg">
-                                    Rank
+                                    #
                                 </th>
                                 <th class="pb-4 text-lg">
                                     Name
                                 </th>
                                 <th class="pb-4 text-lg">
-                                    Market Cap
+                                    MarketCap
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td></td><td>
-                                <p class="text-center">Loading</p>
-                            </td><td></td></tr>
+                            <tr>
+                                <td>
+                                    <div class="animate-pulse"><div class="h-4 md:w-24 my-4 bg-gray-600"></div></div>
+                                </td><td>
+                                    <div class="animate-pulse"><div class="h-4 md:w-60 my-4 bg-gray-600"></div></div>
+                                </td><td>
+                                    <div class="animate-pulse"><div class="h-4 md:w-36 my-4 bg-gray-600"></div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="animate-pulse"><div class="h-4 md:w-24 my-4 bg-gray-600"></div></div>
+                                </td><td>
+                                    <div class="animate-pulse"><div class="h-4 md:w-60 my-4 bg-gray-600"></div></div>
+                                </td><td>
+                                    <div class="animate-pulse"><div class="h-4 md:w-36 my-4 bg-gray-600"></div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="animate-pulse"><div class="h-4 md:w-24 my-4 bg-gray-600"></div></div>
+                                </td><td>
+                                    <div class="animate-pulse"><div class="h-4 md:w-60 my-4 bg-gray-600"></div></div>
+                                </td><td>
+                                    <div class="animate-pulse"><div class="h-4 md:w-36 my-4 bg-gray-600"></div></div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -253,6 +371,7 @@
         </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/@alephium/web3@1.7.3/dist/alephium-web3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@alephium/web3-wallet@1.7.3/dist/alephium-web3-wallet.min.js"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/@alephium/get-extension-wallet@1.7.3/dist/index.js"></script>> -->
 <script type="text/javascript">

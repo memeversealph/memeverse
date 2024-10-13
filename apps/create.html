@@ -56,23 +56,21 @@
 </head>
 <body class="bg-gradient-to-br from-gray-900 to-blue-900 text-gray-300 min-h-screen" style="background: #072344 url(https://assets.website-files.com/645f0a04255d0d8665a9685b/645f119f0429258bf199e1a2_Layer%201.png) top center/cover no-repeat fixed">
     <div class="container mx-auto px-4 py-8">
-        <header class="flex justify-between items-center mb-12">
-            <h1 class="text-3xl font-bold text-white logo">
+        <header class="block lg:flex justify-between items-center mb-12">
+            <h1 class="text-3xl text-center lg:text-left font-bold text-white logo">
                 <img src="https://avatars.githubusercontent.com/u/182427284?v=4" style="display: inline-block; border-radius: 100%; width: 30px">
                 <span>MemeFun</span><span style="background:#0ef;padding:0 .5rem;color:#000;position:absolute;top:3.4rem">DEX</span><sup style="background:#ef0;padding:0 .5rem;color:#000">MAINNET</sup>
             </h1>
-            <nav class="space-x-6">
+            <nav class="mt-10 lg:mt-0 text-center space-x-6">
                 <a class="hover:text-white transition duration-300" href="/apps/index">DEX Home</a>
                 <a class="hover:text-white transition duration-300" href="/apps/create">Create Token</a>
                 <a class="hover:text-white transition duration-300" href="/apps/trade">Trade</a>
                 <a class="hover:text-white transition duration-300" href="/">About</a>
+                <button id="btn-connect-wallet" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 transition duration-300 shadow-lg">
+                    <i class="fas fa-wallet mr-2"></i>Connect Wallet
+                </button>
             </nav>
-            <button id="btn-connect-wallet" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 transition duration-300 shadow-lg">
-                <!-- <i class="fas fa-wallet mr-2"></i> -->
-                Connect Wallet
-            </button>
         </header>
-
         <main>
             <section class="mb-20">
                 <h2 class="text-4xl font-bold text-white mb-10 text-center">Create Tokens</h2>
@@ -167,8 +165,8 @@
             </div>
         </div>
     </div>
-<!-- <script src="https://cdn.jsdelivr.net/npm/alephium-web3@0.9.3/web/alephium-web3.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/@alephium/web3@1.7.3/dist/alephium-web3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@alephium/web3-wallet@1.7.3/dist/alephium-web3-wallet.min.js"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/@alephium/get-extension-wallet@1.7.3/dist/index.js"></script>> -->
 <script type="text/javascript">
